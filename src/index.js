@@ -1,21 +1,18 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
+import "./index.css";
 import App from "./App";
-import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
-import usersReducer from "./features/Users";
+import { BrowserRouter } from "react-router-dom";
+import store from "./redux/store";
 
-const store = configureStore({
-	reducer: {
-		users: usersReducer,
-	},
-});
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
+ReactDOM.render(
 	<React.StrictMode>
-		<Provider store={store}>
-			<App />
-		</Provider>
-	</React.StrictMode>
+		<BrowserRouter>
+			<Provider store={store}>
+				<App />
+			</Provider>
+		</BrowserRouter>
+	</React.StrictMode>,
+	document.getElementById("root")
 );
