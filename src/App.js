@@ -1,8 +1,7 @@
 import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
-import { addUser } from "./pages/Home";
-
+import { addUser } from "./redux/actions";
 function App() {
 	const dispatch = useDispatch();
 	const userList = useSelector((state) => state.users.value);
