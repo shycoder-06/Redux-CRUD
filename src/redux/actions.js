@@ -1,6 +1,12 @@
 import * as types from "./actionType";
 import axios from "axios";
 
+// const instance = axios.create({
+// 	headers: { "Access-Control-Allow-Origin": "*" },
+// });
+
+// export default instance;
+
 const getUsers = (users) => ({
 	type: types.GET_USERS,
 	payload: users,
@@ -27,7 +33,9 @@ export const loadUsers = () => {
 	console.log("LOAD USERS XXX", process.env.REACT_APP_API);
 	return function (dispatch) {
 		axios
+
 			.get(`${process.env.REACT_APP_API}`)
+			// .get(`http://localhost:5000/user`)
 			.then((resp) => {
 				console.log("resp", resp);
 				dispatch(getUsers(resp.data));
@@ -40,6 +48,8 @@ export const deleteUser = (id) => {
 	return function (dispatch) {
 		axios
 			.delete(`${process.env.REACT_APP_API}/${id}`)
+			// .delete(`http://localhost:5000/user/${id}`)
+
 			.then((resp) => {
 				console.log("resp", resp);
 				dispatch(userDeleted());
@@ -53,6 +63,9 @@ export const addUser = (user) => {
 	return function (dispatch) {
 		axios
 			.post(`${process.env.REACT_APP_API}`, user)
+
+			// .post(`http://localhost:5000/user`, user)
+
 			.then((resp) => {
 				console.log("resp", resp);
 				dispatch(userAdded());
@@ -66,6 +79,8 @@ export const getSingleUser = (id) => {
 	return function (dispatch) {
 		axios
 			.get(`${process.env.REACT_APP_API}/${id}`)
+			// .get(`http://localhost:5000/user/${id}`)
+
 			.then((resp) => {
 				console.log("resp", resp);
 				dispatch(getUser(resp.data));
@@ -78,6 +93,8 @@ export const updateUser = (user, id) => {
 	return function (dispatch) {
 		axios
 			.put(`${process.env.REACT_APP_API}/${id}`, user)
+			// .put(`http://localhost:5000/user/${id}`, user)
+
 			.then((resp) => {
 				console.log("resp", resp);
 				dispatch(userUpdated());
