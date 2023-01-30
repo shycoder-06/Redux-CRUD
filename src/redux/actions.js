@@ -24,6 +24,7 @@ const getUser = (user) => ({
 });
 
 export const loadUsers = () => {
+	console.log("LOAD USERS XXX", process.env.REACT_APP_API);
 	return function (dispatch) {
 		axios
 			.get(`${process.env.REACT_APP_API}`)
