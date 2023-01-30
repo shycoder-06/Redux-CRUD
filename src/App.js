@@ -1,43 +1,16 @@
 import "./App.css";
-import { useSelector, useDispatch } from "react-redux";
-import { useState } from "react";
-import { addUser } from "./redux/actions";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import AddUser from "./pages/AddUser";
+import EditUser from "./pages/EditUser";
 function App() {
-	const dispatch = useDispatch();
-	const userList = useSelector((state) => state.users.value);
-	const [name, setName] = useState("");
-	const [username, setUserName] = useState("");
-
 	return (
 		<div className="App">
-			{" "}
-			<div className="addUser">
-				<input
-					type="text"
-					placeholder="Name..."
-					onChange={(event) => {
-						setName(event.target.value);
-					}}
-				/>
-				<input type="text" placeholder="Username..." />
-				<button
-					onClick={() => {
-						dispatch(addUser({ id: 0, name: "", username: "	" }));
-					}}
-				>
-					Add User
-				</button>
-			</div>
-			<div className="displayUsers">
-				{userList.map((user) => {
-					return (
-						<div>
-							<h1>{user.name}</h1>
-							<h1>{user.username}</h1>
-						</div>
-					);
-				})}
-			</div>
+			<Routes>
+				<Route exact path="/" element={<Home />} />
+				<Route exact path="/addUser" element={<AddUser />} />
+				<Route exact path="/editUser/:id" element={<EditUser />} />
+			</Routes>
 		</div>
 	);
 }
