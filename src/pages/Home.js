@@ -65,7 +65,7 @@ const Home = () => {
 	const classes = useStyles();
 	const buttonStyles = useButtonStyles();
 	let dispatch = useDispatch();
-	let history = useNavigate();
+	let navigate = useNavigate();
 	const { users } = useSelector((state) => state.data);
 	useEffect(() => {
 		dispatch(loadUsers());
@@ -83,7 +83,7 @@ const Home = () => {
 				<Button
 					variant="contained"
 					color="primary"
-					onClick={() => history.push("/addUser")}
+					onClick={() => navigate.push("/addUser")}
 				>
 					Add User
 				</Button>
@@ -128,7 +128,7 @@ const Home = () => {
 												</Button>
 												<Button
 													color="primary"
-													onClick={() => history.push(`/editUser/${user.id}`)}
+													onClick={() => navigate.push(`/editUser/${user.id}`)}
 												>
 													Edit
 												</Button>

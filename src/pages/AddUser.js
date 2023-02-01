@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 // import { ThemeProvider, makeStyles } from "@mui/styles";
 // import { createTheme } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -28,7 +29,7 @@ const AddUser = () => {
 	});
 	const [error, setError] = useState("");
 
-	let history = useNavigate();
+	const navigate = useNavigate();
 	let dispatch = useDispatch();
 	const { name, email, contact, address } = state;
 
@@ -43,7 +44,7 @@ const AddUser = () => {
 			setError("Please input all input Field");
 		} else {
 			dispatch(addUser(state));
-			history.push("/");
+			navigate.push("/");
 			setError("");
 		}
 	};
@@ -53,7 +54,7 @@ const AddUser = () => {
 				style={{ width: "100px", marginTop: "20px" }}
 				variant="contained"
 				color="secondary"
-				onClick={() => history.push("/")}
+				onClick={() => navigate.push("/")}
 			>
 				Go Back
 			</Button>

@@ -30,7 +30,7 @@ const EditUser = () => {
 	const [error, setError] = useState("");
 	let { id } = useParams();
 	const { user } = useSelector((state) => state.data);
-	let history = useNavigate();
+	let navigate = useNavigate();
 	let dispatch = useDispatch();
 	const { name, email, contact, address } = state;
 
@@ -55,7 +55,7 @@ const EditUser = () => {
 			setError("Please input all input Field");
 		} else {
 			dispatch(updateUser(state, id));
-			history.push("/");
+			navigate.push("/");
 			setError("");
 		}
 	};
@@ -65,7 +65,7 @@ const EditUser = () => {
 				style={{ width: "100px", marginTop: "20px" }}
 				variant="contained"
 				color="secondary"
-				onClick={() => history.push("/")}
+				onClick={() => navigate.push("/")}
 			>
 				Go Back
 			</Button>
