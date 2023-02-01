@@ -2,17 +2,10 @@
   "user": [
     {
       "name": "Tommy",
-      "address": "Japan",
+      "address": "ssJapaniyan",
       "email": "tom@gmail.com",
       "contact": "83786646476",
       "id": 2
-    },
-    {
-      "name": "James Bond",
-      "email": "james@gmail.com",
-      "contact": "9484785787",
-      "address": "France",
-      "id": 3
     },
     {
       "name": "Larry",
@@ -20,6 +13,20 @@
       "contact": "347846746",
       "address": "UK",
       "id": 4
+    },
+    {
+      "name": "ss",
+      "email": "ss",
+      "contact": "1",
+      "address": "ss",
+      "id": 5
+    },
+    {
+      "name": "shy",
+      "email": "shy",
+      "contact": "121",
+      "address": "dsd",
+      "id": 6
     }
   ]
 }

@@ -83,7 +83,7 @@ const Home = () => {
 				<Button
 					variant="contained"
 					color="primary"
-					onClick={() => navigate.push("/addUser")}
+					onClick={() => navigate("/addUser")}
 				>
 					Add User
 				</Button>
@@ -128,7 +128,7 @@ const Home = () => {
 												</Button>
 												<Button
 													color="primary"
-													onClick={() => navigate.push(`/editUser/${user.id}`)}
+													onClick={() => navigate(`/editUser/${user.id}`)}
 												>
 													Edit
 												</Button>

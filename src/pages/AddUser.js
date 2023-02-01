@@ -44,7 +44,7 @@ const AddUser = () => {
 			setError("Please input all input Field");
 		} else {
 			dispatch(addUser(state));
-			navigate.push("/");
+			navigate("/");
 			setError("");
 		}
 	};
@@ -54,7 +54,7 @@ const AddUser = () => {
 				style={{ width: "100px", marginTop: "20px" }}
 				variant="contained"
 				color="secondary"
-				onClick={() => navigate.push("/")}
+				onClick={() => navigate("/")}
 			>
 				Go Back
 			</Button>

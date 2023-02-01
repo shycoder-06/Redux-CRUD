@@ -55,7 +55,7 @@ const EditUser = () => {
 			setError("Please input all input Field");
 		} else {
 			dispatch(updateUser(state, id));
-			navigate.push("/");
+			navigate("/");
 			setError("");
 		}
 	};
@@ -65,7 +65,7 @@ const EditUser = () => {
 				style={{ width: "100px", marginTop: "20px" }}
 				variant="contained"
 				color="secondary"
-				onClick={() => navigate.push("/")}
+				onClick={() => navigate("/")}
 			>
 				Go Back
 			</Button>
