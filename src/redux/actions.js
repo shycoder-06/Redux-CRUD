@@ -29,18 +29,33 @@ const getUser = (user) => ({
 	payload: user,
 });
 
-export const loadUsers = () => {
-	console.log("LOAD USERS XXX", process.env.REACT_APP_API);
-	return function (dispatch) {
-		axios
+const API_ENDPOINT = "http://localhost:5000/user";
 
-			.get(`${process.env.REACT_APP_API}`)
-			// .get(`http://localhost:5000/user`)
-			.then((resp) => {
-				console.log("resp", resp);
-				dispatch(getUsers(resp.data));
-			})
-			.catch((error) => console.log(error));
+// export const loadUsers = () => {
+// 	console.log("LOAD USERS XXX", process.env.REACT_APP_API);
+// 	return function (dispatch) {
+// 		axios
+
+// 			.get(`${process.env.REACT_APP_API}`)
+// 			// .get(`http://localhost:5000/user`)
+// 			.then((resp) => {
+// 				console.log("resp", resp);
+// 				dispatch(getUsers(resp.data));
+// 			})
+// 			.catch((error) => console.log(error));
+// 	};
+// };
+
+export const loadUsers = () => {
+	console.log("LOAD USERS XXX", process.env.REACT_APP_API, API_ENDPOINT);
+	return async (dispatch) => {
+		try {
+			const resp = await axios.get(API_ENDPOINT);
+			console.log("resp", resp);
+			dispatch(getUsers(resp.data));
+		} catch (error) {
+			console.log(error);
+		}
 	};
 };
 

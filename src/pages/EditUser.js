@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { ThemeProvider, makeStyles } from "@mui/styles";
-import { createTheme } from "@mui/material";
+// import { ThemeProvider, makeStyles } from "@mui/styles";
+// import { createTheme } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -35,7 +36,7 @@ const EditUser = () => {
 
 	useEffect(() => {
 		dispatch(getSingleUser(id));
-	}, []);
+	}, [dispatch, id]);
 
 	useEffect(() => {
 		if (user) {
